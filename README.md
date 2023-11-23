@@ -120,7 +120,7 @@ void controlarLED(int pin, int frequencia) {
 
 <br>
 
-## Links
+## 🖇️ Links
 ### 📽️ Youtube
 - Sensor de Monitoramento de Saúde:
 ### 💡 Wonki
@@ -139,5 +139,5 @@ void controlarLED(int pin, int frequencia) {
 
 <br>
 
-## Considerações Finais
+## 🎁 Considerações Finais
 Este código fornece uma estrutura básica para monitoramento de saúde usando ESP32, DHT22 e MQTT. Espera-se que este projeto forneça uma solução prática e eficiente para o monitoramento de saúde, contribuindo para a detecção precoce de condições adversas e melhorando a resposta a situações de emergência.
