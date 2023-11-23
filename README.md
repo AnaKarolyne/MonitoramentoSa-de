@@ -4,12 +4,12 @@ Este código implementa um sistema de monitoramento de saúde usando o microcont
 
 <br>
 
-## Objetivo do Projeto
+## 🎯 Objetivo do Projeto
 O objetivo principal deste projeto é proporcionar um monitoramento contínuo e em tempo real das condições ambientais e de saúde. Isso permite a detecção precoce de situações anormais, como febre, e a tomada de medidas preventivas ou de alerta, melhorando assim a resposta e o cuidado com a saúde.
 
 <br>
 
-## Benefícios para os Usuários
+## 💯 Benefícios para os Usuários
 1. **Detecção de Febre:** O sensor de temperatura (DHT22) possibilita a detecção de febre, indicando um aumento na temperatura ambiente.
 2. **Monitoramento da Umidade:** O sensor de umidade permite monitorar os níveis de umidade ambiental, sendo benéfico em situações como cuidados respiratórios, prevenção de doenças respiratórias e conforto dermatológico.
 3. **Alerta Visual com LEDs:** O uso de LEDs vermelho e amarelo fornece alertas visuais imediatos, permitindo uma identificação rápida e intuitiva de condições anormais.
@@ -17,7 +17,7 @@ O objetivo principal deste projeto é proporcionar um monitoramento contínuo e 
 
 <br>
 
-## Cenários de Uso
+## 🏠 Cenários de Uso
 1. **Monitoramento Domiciliar:** Pode ser utilizado em casa para monitorar a saúde de familiares, especialmente crianças e idosos.
 2. **Ambientes Clínicos:** Em ambientes clínicos, pode ser implementado para monitorar a temperatura e umidade em salas de espera, consultórios médicos, entre outros.
 3. **Locais de Trabalho:** Em locais de trabalho, o sistema pode ser empregado para monitorar as condições ambientais e de saúde dos funcionários.
