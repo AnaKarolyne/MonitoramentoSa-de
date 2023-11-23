@@ -31,7 +31,6 @@ O objetivo principal deste projeto é proporcionar um monitoramento contínuo e 
 4. Broker - Intermediário entre a máquina e o protocolo;
 
 <br>
->
 
 ## 📋 Componentes físicos do sensor
 1. ESP32: Microcontrolador responsável por coletar dados do sensor e controlar os LEDs.
