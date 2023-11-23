@@ -3,14 +3,14 @@
 #include <DHTesp.h>
 
 // Pinos dos componentes
-const int DHT_PIN = 15;       // Pino ao qual o sensor DHT22 está conectado
-const int ledTempPin = 2;      // Pino ao qual o LED vermelho está conectado
-const int ledHumPin = 5;     // Pino ao qual o LED amarelo está conectado
+const int DHT_PIN = 15;     // Pino ao qual o sensor DHT22 está conectado
+const int ledTempPin = 2;   // Pino ao qual o LED vermelho está conectado
+const int ledHumPin = 5;    // Pino ao qual o LED amarelo está conectado
 
 DHTesp dht; 
 
 // Configurações de rede MQTT
-const char* ssid = "Wokwi-ANA";
+const char* ssid = "Wokwi-GUEST";
 const char* password = "";
 const char* mqtt_server = "test.mosquitto.org";
 
@@ -20,9 +20,11 @@ PubSubClient client(espClient);
 
 // Variáveis de controle
 unsigned long lastMsg = 0;
+float temp = 0;
+float hum = 0;
 
-void setup_wifi() {
-  delay(100);
+void setup_wifi() { 
+  delay(10);
   Serial.println();
   Serial.print("Conectando-se a ");
   Serial.println(ssid);
@@ -31,9 +33,11 @@ void setup_wifi() {
   WiFi.begin(ssid, password);
 
   while (WiFi.status() != WL_CONNECTED) {
-    delay(100);
+    delay(500);
     Serial.print(".");
   }
+
+  randomSeed(micros());
 
   Serial.println("");
   Serial.println("WiFi conectado");
@@ -42,48 +46,43 @@ void setup_wifi() {
 }
 
 // Callback chamada quando uma mensagem MQTT é recebida
-void callback(char* topic, byte* payload, unsigned int length) {
+void callback(char* topic, byte* payload, unsigned int length) { //perintah untuk menampilkan data ketika esp32 di setting sebagai subscriber
   Serial.print("Mensagem recebida [");
   Serial.print(topic);
   Serial.print("] ");
-  
-  // Exibe o conteúdo da mensagem
-  for (int i = 0; i < length; i++) {
+  for (int i = 0; i < length; i++) { // Exibe o conteúdo da mensagem
     Serial.print((char)payload[i]);
   }
-  
   Serial.println();
 
   // Ligar ou desligar o LED com base na mensagem recebida
   if ((char)payload[0] == '1') {
     digitalWrite(2, LOW);   // Ligar o LED (LOW é o nível de voltagem)
   } else {
-    digitalWrite(2, HIGH);  // Desligar o LED (HIGH é o nível de voltagem)
+    digitalWrite(2, HIGH); // Desligar o LED (HIGH é o nível de voltagem)
   }
 }
 
-void reconnect() {
+void reconnect() { //perintah koneksi esp32 ke mqtt broker baik itu sebagai publusher atau subscriber
+  // Loop until we're reconnected
   while (!client.connected()) {
     Serial.print("Tentando conectar ao MQTT...");
-    
-    // Gerar um ID de cliente único para a conexão MQTT
+    // perintah membuat client id agar mqtt broker mengenali board yang kita gunakan
     String clientId = "ESP32Client-";
     clientId += String(random(0xffff), HEX);
-    
-    // Tentar se conectar ao broker MQTT
+    // Attempt to connect
     if (client.connect(clientId.c_str())) {
-      Serial.println("Conectado");
-      
-      // Publicar uma mensagem de anúncio após a conexão
-      client.publish("/saude/monitoramento/mqtt", "Indobot");
-      
-      // Se inscrever novamente nos tópicos desejados
-      client.subscribe("/saude/monitoramento/mqtt");
+      Serial.println("Connected");
+      // Once connected, publish an announcement...
+      client.publish("/saude/monitoramento/mqtt", "Indobot"); //perintah publish data ke alamat topik yang di setting
+      // ... and resubscribe
+      client.subscribe("/saude/monitoramento/mqtt"); //perintah subscribe data ke mqtt broker
     } else {
       Serial.print("Falha, rc=");
       Serial.print(client.state());
       Serial.println(" tentando novamente em 5 segundos");
-      delay(1000);
+      // Wait 5 seconds before retrying
+      delay(5000);
     }
   }
 }
@@ -117,27 +116,26 @@ void loop() {
   client.loop();
 
   unsigned long now = millis();
-  
+
   // Publicar dados a cada segundo
-  if (now - lastMsg > 1000) {
+  if (now - lastMsg > 1000) { //perintah publish data
     lastMsg = now;
-    
+
     // Obter dados do sensor DHT22
     TempAndHumidity  data = dht.getTempAndHumidity();
 
     // Publicar temperatura
-    String temperature = String(data.temperature, 2);
-    client.publish("/saude/monitoramento/temperature", temperature.c_str());
+    String temp = String(data.temperature, 2); //membuat variabel temp untuk di publish ke broker mqtt
+    client.publish("/saude/monitoramento/temperature", temp.c_str()); //publish data dari varibel temp ke broker mqtt
     
     // Publicar umidade
-    String humidity = String(data.humidity, 1);
-    client.publish("/saude/monitoramento/humidity", humidity.c_str());
+    String hum = String(data.humidity, 1); //membuat variabel hum untuk di publish ke broker mqtt
+    client.publish("/saude/monitoramento/humidity", hum.c_str()); //publish data dari varibel hum ke broker mqtt
 
-    // Exibir dados no monitor serial
     Serial.print("Temperatura: ");
-    Serial.println(temperature);
+    Serial.println(temp);
     Serial.print("Umidade: ");
-    Serial.println(humidity);
+    Serial.println(hum);
 
     // Controle do LED com base na temperatura
     if (data.temperature > 35) {
@@ -150,6 +148,8 @@ void loop() {
       } else {
         client.publish("/saude/monitoramento/alertatemp", "Temperatura elevada.");
       }
+    } else {
+      client.publish("/saude/monitoramento/alertatemp", "Temperatura normal.");
     }
 
     // Controle do LED com base na umidade
@@ -163,6 +163,8 @@ void loop() {
       } else {
         client.publish("/saude/monitoramento/alertahum", "Umidade baixa.");
       }
+    } else {
+      client.publish("/saude/monitoramento/alertahum", "Umidade normal.");
     }
   }
 }
