@@ -61,10 +61,17 @@ Para realizar o teste do programa, segue os passos necessários em ordem de exec
 
 ## Código
 
+<br>
+
 ### Configurações Personalizadas
 O código fornecido é um ponto de partida e pode ser personalizado conforme as necessidades específicas de cada aplicação. É possível ajustar limiares de temperatura, frequências de alerta e tópicos MQTT para atender aos requisitos particulares.
-   
+
+<br>
+
 ### Configurações Iniciais
+
+<br>
+
 ### Rede Wi-Fi
 O ESP32 se conecta a uma rede Wi-Fi configurada no código, fornecendo acesso à internet para comunicação MQTT.
 
