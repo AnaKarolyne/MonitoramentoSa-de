@@ -8,6 +8,7 @@ Este código implementa um sistema de monitoramento de saúde usando o microcont
 1. Simulador de eletrônica online, como por exemplo o Wokwi (https://wokwi.com/);
 2. Node-Red - Ferramenta de programação visual;
 3. Módulo node-red-dashboard;
+4. Broker - Intermediário entre a máquina e o protocolo;
 
 <br>
 
@@ -19,24 +20,32 @@ Este código implementa um sistema de monitoramento de saúde usando o microcont
 
 <br>
 
+## ⚙️ Executando os testes
+Para realizar o teste do programa, segue os passos necessários em ordem de execução:
+1. Clone o repositório para o seu ambiente local, ou crie um novo dentro do seu simulador online.
+2. Execute o programa e verifique se a conexão está sendo feita corretamente.
+3. Abra o Node-RED configurado localmente.
+4. Configure as conexões necessárias com o dashboard escolhido.
+5. Implemente o seu fluxo Node-RED.
+6. Acesse o Node-RED dashboard, por meio do seu endereço local e a sigla "ui" no final do seu link.
+
 ## Código
    
 ### Configurações Iniciais
-Rede Wi-Fi
+### Rede Wi-Fi
 O ESP32 se conecta a uma rede Wi-Fi configurada no código, fornecendo acesso à internet para comunicação MQTT.
 
 ```
-const char* ssid = "Sua-Rede-WiFi";
-const char* password = "Sua-Senha";
+const char* ssid = "Wokwi-ANA";
+const char* password = "";
 ```
 
 <br>
 
 ### MQTT
-As configurações do servidor MQTT são definidas no código. Certifique-se de substituir esses valores pelos do seu servidor.
-
+Configuração do broker online conforme documentação técnica do mosquitto.
 ```
-const char* mqtt_server = "seu.mqtt.servidor";
+const char* mqtt_server = "test.mosquitto.org";
 ```
 <br>
 
@@ -74,18 +83,6 @@ void controlarLED(int pin, int frequencia) {
 ```
 
 <br>
-
-### Comunicação MQTT
-A função callback() é chamada quando uma mensagem MQTT é recebida. Ela interpreta a mensagem e controla o estado do LED.
-
-```
-void callback(char* topic, byte* payload, unsigned int length) {
-  // Lógica para interpretar e reagir à mensagem MQTT recebida
-}
-```
-
-<br>
-
 
 ## Links
 ### 📽️ Youtube
