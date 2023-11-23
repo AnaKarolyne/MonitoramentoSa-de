@@ -4,8 +4,8 @@
 
 // Pinos dos componentes
 const int DHT_PIN = 15;       // Pino ao qual o sensor DHT22 está conectado
-const int ledBpmPin = 2;      // Pino ao qual o LED vermelho está conectado
-const int ledOxityPin = 5;     // Pino ao qual o LED amarelo está conectado
+const int ledTempPin = 2;      // Pino ao qual o LED vermelho está conectado
+const int ledHumPin = 5;     // Pino ao qual o LED amarelo está conectado
 
 DHTesp dht; 
 
@@ -126,42 +126,42 @@ void loop() {
     TempAndHumidity  data = dht.getTempAndHumidity();
 
     // Publicar temperatura
-    String bpm = String(data.temperature, 2);
-    client.publish("/saude/monitoramento/bpm", bpm.c_str());
+    String temperature = String(data.temperature, 2);
+    client.publish("/saude/monitoramento/temperature", temperature.c_str());
     
     // Publicar umidade
-    String spo2 = String(data.humidity, 1);
-    client.publish("/saude/monitoramento/spo2", spo2.c_str());
+    String humidity = String(data.humidity, 1);
+    client.publish("/saude/monitoramento/humidity", humidity.c_str());
 
     // Exibir dados no monitor serial
-    Serial.print("Oxigenação: ");
-    Serial.println(spo2);
-    Serial.print("Frequência Cardíaca: ");
-    Serial.println(bpm);
+    Serial.print("Temperatura: ");
+    Serial.println(temperature);
+    Serial.print("Umidade: ");
+    Serial.println(humidity);
 
     // Controle do LED com base na temperatura
     if (data.temperature > 35) {
-      int frequenciaBpmLED = map(data.temperature, -40, 80, 50, 500);
-      controlarLED(ledBpmPin, frequenciaBpmLED);
+      int frequenciaTempLED = map(data.temperature, -40, 80, 50, 500);
+      controlarLED(ledTempPin, frequenciaTempLED);
 
       // Publicar mensagem dependendo da temperatura
       if (data.temperature > 40) {
-        client.publish("/saude/monitoramento/alertabpm", "Temperatura muito alta!");
+        client.publish("/saude/monitoramento/alertatemp", "Temperatura muito alta!");
       } else {
-        client.publish("/saude/monitoramento/alertabpm", "Temperatura elevada.");
+        client.publish("/saude/monitoramento/alertatemp", "Temperatura elevada.");
       }
     }
 
     // Controle do LED com base na umidade
     if (data.humidity < 35) {
-      int frequenciaOxityLED = map(data.humidity, 0, 30, 10, 100);
-      controlarLED(ledOxityPin, frequenciaOxityLED);
+      int frequenciaHumLED = map(data.humidity, 0, 100, 10, 100);
+      controlarLED(ledHumPin, frequenciaHumLED);
     
       // Publicar mensagem dependendo da umidade
       if (data.humidity < 20) {
-        client.publish("/saude/monitoramento/alertaoxity", "Umidade muito baixa!");
+        client.publish("/saude/monitoramento/alertahum", "Umidade muito baixa!");
       } else {
-        client.publish("/saude/monitoramento/alertaoxity", "Umidade baixa.");
+        client.publish("/saude/monitoramento/alertahum", "Umidade baixa.");
       }
     }
   }
