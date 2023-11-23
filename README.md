@@ -59,12 +59,12 @@ Para realizar o teste do programa, segue os passos necessários em ordem de exec
 
 <br>
 
-## Configurações Personalizadas
+## 🪄 Configurações Personalizadas
 O código fornecido é um ponto de partida e pode ser personalizado conforme as necessidades específicas de cada aplicação. É possível ajustar limiares de temperatura, frequências de alerta e tópicos MQTT para atender aos requisitos particulares.
 
 <br>
 
-## Configurações de Rede e Broker
+## 🔌Configurações de Rede e Broker
 
 ### Rede Wi-Fi
 O ESP32 se conecta a uma rede Wi-Fi configurada no código, fornecendo acesso à internet para comunicação MQTT.
@@ -83,7 +83,7 @@ const char* mqtt_server = "test.mosquitto.org";
 ```
 <br>
 
-## Código
+## 📝 Código
 
 ### Setup
 A função setup() é executada uma vez no início do programa e realiza as seguintes operações:
