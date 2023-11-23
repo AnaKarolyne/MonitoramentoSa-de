@@ -120,6 +120,11 @@ void controlarLED(int pin, int frequencia) {
 
 <br>
 
+## ⏳ Idéias para o futuro
+- Adição do sensor MAX30100 para realizar a leitura da frequência cardíaca e o nível de oxigênio do paciente.
+  
+<br>
+
 ## 🖇️ Links
 ### 📽️ Youtube
 - Sensor de Monitoramento de Saúde:
