@@ -1,5 +1,5 @@
 # Documentação Técnica - Monitoramento de Saúde com ESP32 e MQTT
-## Introdução
+## 🚀 Introdução
 Este código implementa um sistema de monitoramento de saúde usando o microcontrolador ESP32, sensores DHT22 (temperatura e umidade), LEDs indicadores e comunicação MQTT para a troca de dados.
 
 <br>
