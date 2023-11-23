@@ -29,6 +29,8 @@ Para realizar o teste do programa, segue os passos necessários em ordem de exec
 5. Implemente o seu fluxo Node-RED.
 6. Acesse o Node-RED dashboard, por meio do seu endereço local e a sigla "ui" no final do seu link.
 
+<br>
+
 ## Código
    
 ### Configurações Iniciais
@@ -89,6 +91,7 @@ void controlarLED(int pin, int frequencia) {
 - Sensor de Monitoramento de Saúde:
 ### 💡 Wonki
 - Projeto Wokwi ESP32_FrequenciaCardiaca_MQTT: https://wokwi.com/projects/381419262223450113
+
 <br>
 
 ## ✒️ Autores
