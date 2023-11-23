@@ -1,6 +1,26 @@
 # Documentação Técnica - Monitoramento de Saúde com ESP32 e MQTT
 ## 🚀 Introdução
-Este código implementa um sistema de monitoramento de saúde usando o microcontrolador ESP32, sensores DHT22 (temperatura e umidade), LEDs indicadores e comunicação MQTT para a troca de dados.
+Este código implementa um sistema de monitoramento de saúde usando o microcontrolador ESP32, sensores DHT22 (temperatura e umidade), LEDs indicadores e comunicação MQTT para a troca de dados. Ele é projetado para beneficiar pessoas ao oferecer uma maneira eficaz e acessível de acompanhar as condições ambientais e de saúde em tempo real.
+
+<br>
+
+## Objetivo do Projeto
+O objetivo principal deste projeto é proporcionar um monitoramento contínuo e em tempo real das condições ambientais e de saúde. Isso permite a detecção precoce de situações anormais, como febre, e a tomada de medidas preventivas ou de alerta, melhorando assim a resposta e o cuidado com a saúde.
+
+<br>
+
+## Benefícios para os Usuários
+1. **Detecção de Febre:** O sensor de temperatura (DHT22) possibilita a detecção de febre, indicando um aumento na temperatura ambiente.
+2. **Monitoramento da Umidade:** O sensor de umidade permite monitorar os níveis de umidade ambiental, sendo benéfico em situações como cuidados respiratórios, prevenção de doenças respiratórias e conforto dermatológico.
+3. **Alerta Visual com LEDs:** O uso de LEDs vermelho e amarelo fornece alertas visuais imediatos, permitindo uma identificação rápida e intuitiva de condições anormais.
+4. **Comunicação MQTT:** A integração com o protocolo MQTT possibilita o envio de alertas para dispositivos externos, como smartphones ou computadores, permitindo que pessoas responsáveis ou profissionais de saúde recebam notificações em tempo real.
+
+<br>
+
+## Cenários de Uso
+1. **Monitoramento Domiciliar:** Pode ser utilizado em casa para monitorar a saúde de familiares, especialmente crianças e idosos.
+2. **Ambientes Clínicos:** Em ambientes clínicos, pode ser implementado para monitorar a temperatura e umidade em salas de espera, consultórios médicos, entre outros.
+3. **Locais de Trabalho:** Em locais de trabalho, o sistema pode ser empregado para monitorar as condições ambientais e de saúde dos funcionários.
 
 <br>
 
@@ -11,6 +31,7 @@ Este código implementa um sistema de monitoramento de saúde usando o microcont
 4. Broker - Intermediário entre a máquina e o protocolo;
 
 <br>
+>
 
 ## 📋 Componentes físicos do sensor
 1. ESP32: Microcontrolador responsável por coletar dados do sensor e controlar os LEDs.
@@ -32,6 +53,9 @@ Para realizar o teste do programa, segue os passos necessários em ordem de exec
 <br>
 
 ## Código
+
+### Configurações Personalizadas
+O código fornecido é um ponto de partida e pode ser personalizado conforme as necessidades específicas de cada aplicação. É possível ajustar limiares de temperatura, frequências de alerta e tópicos MQTT para atender aos requisitos particulares.
    
 ### Configurações Iniciais
 ### Rede Wi-Fi
@@ -106,4 +130,4 @@ void controlarLED(int pin, int frequencia) {
 <br>
 
 ## Considerações Finais
-Este código fornece uma estrutura básica para monitoramento de saúde usando ESP32, DHT22 e MQTT.
+Este código fornece uma estrutura básica para monitoramento de saúde usando ESP32, DHT22 e MQTT. Espera-se que este projeto forneça uma solução prática e eficiente para o monitoramento de saúde, contribuindo para a detecção precoce de condições adversas e melhorando a resposta a situações de emergência.
