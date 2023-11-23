@@ -1,11 +1,19 @@
 # Documentação Técnica - Monitoramento de Saúde com ESP32 e MQTT
 ## 🚀 Introdução
-Este código implementa um sistema de monitoramento de saúde usando o microcontrolador ESP32, sensores DHT22 (temperatura e umidade), LEDs indicadores e comunicação MQTT para a troca de dados. Ele é projetado para beneficiar pessoas ao oferecer uma maneira eficaz e acessível de acompanhar as condições ambientais e de saúde em tempo real.
+O projeto "Monitoramento de Saúde com ESP32 e MQTT" tem como objetivo criar uma solução eficaz para o acompanhamento contínuo e em tempo real das condições ambientais e de saúde. Utilizando o microcontrolador ESP32, um sensor DHT22 para medição de temperatura e umidade, LEDs indicadores e comunicação MQTT, a iniciativa busca oferecer uma ferramenta versátil e acessível para diversos cenários de monitoramento de saúde.
 
 <br>
 
 ## 🎯 Objetivo do Projeto
-O objetivo principal deste projeto é proporcionar um monitoramento contínuo e em tempo real das condições ambientais e de saúde. Isso permite a detecção precoce de situações anormais, como febre, e a tomada de medidas preventivas ou de alerta, melhorando assim a resposta e o cuidado com a saúde.
+
+A ideia central é proporcionar às pessoas um meio de monitorar, de maneira intuitiva, as condições ambientais que podem impactar sua saúde. O sensor de temperatura permite a detecção precoce de febre, enquanto o sensor de umidade amplia a compreensão do ambiente, sendo útil em situações como cuidados respiratórios, prevenção de doenças e garantia de conforto dermatológico.
+
+O uso de LEDs vermelho e amarelo como indicadores visuais oferece uma forma imediata de alertar para condições anormais, proporcionando uma resposta rápida diante de situações críticas. A comunicação MQTT, integrada ao projeto, possibilita o envio de alertas para dispositivos externos, permitindo que familiares, cuidadores ou profissionais de saúde recebam notificações em tempo real.
+
+O projeto é flexível e pode ser adaptado para uma variedade de cenários, desde o monitoramento domiciliar até ambientes clínicos e locais de trabalho. A personalização do código permite ajustar limiares de temperatura, frequências de alerta e tópicos MQTT, tornando-o uma solução versátil para atender às necessidades específicas de cada aplicação.
+
+Com uma abordagem abrangente que considera tanto a temperatura quanto a umidade, o "Monitoramento de Saúde com ESP32 e MQTT" representa uma iniciativa inovadora no campo da saúde conectada, proporcionando uma resposta proativa e eficiente para situações que exigem atenção imediata.
+
 
 <br>
 
