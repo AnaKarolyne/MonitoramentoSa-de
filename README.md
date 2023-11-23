@@ -129,7 +129,7 @@ void controlarLED(int pin, int frequencia) {
 ### 📽️ Youtube
 - Sensor de Monitoramento de Saúde:
 ### 💡 Wonki
-- Projeto Wokwi ESP32_FrequenciaCardiaca_MQTT: https://wokwi.com/projects/381419262223450113
+- Projeto Wokwi ESP32_Temp/Umidade_MQTT: https://wokwi.com/projects/381419262223450113
 
 <br>
 
