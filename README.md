@@ -4,34 +4,43 @@ Este código implementa um sistema de monitoramento de saúde usando o microcont
 
 <br>
 
-## Componentes
+## 🛠️ Pré-Requisitos
+1. Simulador de eletrônica online, como por exemplo o Wokwi (https://wokwi.com/);
+2. Node-Red - Ferramenta de programação visual;
+3. Módulo node-red-dashboard;
+
+<br>
+
+## 📋 Componentes físicos do sensor
 1. ESP32: Microcontrolador responsável por coletar dados do sensor e controlar os LEDs.
 2. DHT22: Sensor de temperatura e umidade utilizado para medir as condições ambientais.
 3. LEDs: Dois LEDs (vermelho e amarelo) indicam alertas com base nas leituras do sensor.
+4. Protoboard: plataforma versátil que permite a conexão temporária dos componentes eletrônicos.
 
 <br>
+
+## Código
    
-## Configurações Iniciais
+### Configurações Iniciais
 Rede Wi-Fi
 O ESP32 se conecta a uma rede Wi-Fi configurada no código, fornecendo acesso à internet para comunicação MQTT.
 
-cpp
-Copy code
+```
 const char* ssid = "Sua-Rede-WiFi";
 const char* password = "Sua-Senha";
+```
 
 <br>
 
-## MQTT
+### MQTT
 As configurações do servidor MQTT são definidas no código. Certifique-se de substituir esses valores pelos do seu servidor.
 
-cpp
-Copy code
+```
 const char* mqtt_server = "seu.mqtt.servidor";
-
+```
 <br>
 
-## Setup
+### Setup
 A função setup() é executada uma vez no início do programa e realiza as seguintes operações:
 
 1. Configuração dos pinos: Define os pinos como saída para os LEDs.
@@ -42,7 +51,7 @@ A função setup() é executada uma vez no início do programa e realiza as segu
 
 <br>
    
-## Loop Principal
+### Loop Principal
 A função loop() é executada continuamente e realiza as seguintes operações:
 1. Reconexão MQTT: Verifica se o cliente MQTT está conectado. Se não estiver, tenta reconectar.
 2. Leitura de Dados: Obtém dados do sensor DHT22 (temperatura e umidade).
@@ -52,38 +61,40 @@ A função loop() é executada continuamente e realiza as seguintes operações:
 
 <br>
 
-## Controle dos LEDs
+### Controle dos LEDs
 A função controlarLED() é responsável por controlar o LED indicador. Recebe o pino do LED e a frequência de piscamento como parâmetros.
 
-cpp
-Copy code
+```
 void controlarLED(int pin, int frequencia) {
   digitalWrite(pin, HIGH);
   delay(frequencia);
   digitalWrite(pin, LOW);
   delay(frequencia);
 }
+```
 
 <br>
 
-## Comunicação MQTT
+### Comunicação MQTT
 A função callback() é chamada quando uma mensagem MQTT é recebida. Ela interpreta a mensagem e controla o estado do LED.
 
-cpp
-Copy code
+```
 void callback(char* topic, byte* payload, unsigned int length) {
   // Lógica para interpretar e reagir à mensagem MQTT recebida
 }
+```
 
 <br>
+
 
 ## Links
-### Youtube
+### 📽️ Youtube
 - Sensor de Monitoramento de Saúde:
-
+### 💡 Wonki
+- Projeto Wokwi ESP32_FrequenciaCardiaca_MQTT: https://wokwi.com/projects/381419262223450113
 <br>
 
-## Autores
+## ✒️ Autores
 | Nome               | RM     |
 | ------------------ | ------ |
 | Ana Karolyne       | RM93668    |
@@ -95,4 +106,4 @@ void callback(char* topic, byte* payload, unsigned int length) {
 <br>
 
 ## Considerações Finais
-Este código fornece uma estrutura básica para monitoramento de saúde usando ESP32, DHT22 e MQTT. Personalize conforme necessário para atender aos requisitos específicos do seu projeto.
+Este código fornece uma estrutura básica para monitoramento de saúde usando ESP32, DHT22 e MQTT.
