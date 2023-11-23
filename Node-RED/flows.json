@@ -26,8 +26,7 @@
             [
                 "af4e4e50fb3d5790",
                 "a8966f7cb5d55b0b",
-                "535aafd733699370",
-                "0f0de14162ac4636"
+                "535aafd733699370"
             ]
         ]
     },
@@ -94,9 +93,7 @@
             [
                 "e65e90723e3ff311",
                 "c8695cd334a29f3d",
-                "b57067968e1ac1ca",
-                "0cfeeb76af5d3a43",
-                "721116181f3d1ba3"
+                "b57067968e1ac1ca"
             ]
         ]
     },
@@ -235,78 +232,6 @@
         "wires": []
     },
     {
-        "id": "0cfeeb76af5d3a43",
-        "type": "function",
-        "z": "354bcc48672cf1e7",
-        "name": "function 1",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 320,
-        "y": 160,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "0f0de14162ac4636",
-        "type": "function",
-        "z": "354bcc48672cf1e7",
-        "name": "function 2",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 320,
-        "y": 440,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "721116181f3d1ba3",
-        "type": "function",
-        "z": "354bcc48672cf1e7",
-        "name": "function 3",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 320,
-        "y": 200,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "8c29ebaa896c1098",
-        "type": "function",
-        "z": "354bcc48672cf1e7",
-        "name": "function 4",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 320,
-        "y": 480,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "941081c661b68ef4",
         "type": "ui_text",
         "z": "354bcc48672cf1e7",
@@ -324,7 +249,7 @@
         "fontSize": "24",
         "color": "#018aad",
         "x": 370,
-        "y": 240,
+        "y": 160,
         "wires": []
     },
     {
@@ -362,7 +287,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 240,
+        "y": 160,
         "wires": [
             [
                 "941081c661b68ef4"
